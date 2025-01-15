@@ -2,18 +2,18 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import {Head, Link, usePage} from '@inertiajs/vue3';
 import {onMounted, ref, watch} from 'vue'
-import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow,} from '@/components/ui/table'
-import {Button} from '@/components/ui/button'
-import {Input} from '@/components/ui/input'
-import {Pagination, PaginationList, PaginationListItem,} from '@/components/ui/pagination'
-import {Popover, PopoverContent, PopoverTrigger,} from '@/components/ui/popover'
-import {RadioGroup, RadioGroupItem} from '@/components/ui/radio-group'
-import {Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList,} from '@/components/ui/command'
-import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger,} from '@/components/ui/dropdown-menu'
-import {Label} from '@/components/ui/label'
+import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow,} from '@/Components/ui/table'
+import {Button} from '@/Components/ui/button'
+import {Input} from '@/Components/ui/input'
+import {Pagination, PaginationList, PaginationListItem,} from '@/Components/ui/pagination'
+import {Popover, PopoverContent, PopoverTrigger,} from '@/Components/ui/popover'
+import {RadioGroup, RadioGroupItem} from '@/Components/ui/radio-group'
+import {Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList,} from '@/Components/ui/command'
+import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger,} from '@/Components/ui/dropdown-menu'
+import {Label} from '@/Components/ui/label'
 import throttle from 'lodash/throttle';
-import {cn} from '@/lib/utils'
-import {CaretSortIcon, CheckIcon} from '@radix-icons/vue'
+import {cn} from '@/lib/utils';
+import {CaretSortIcon, CheckIcon, DotsHorizontalIcon} from '@radix-icons/vue'
 
 let animals = ref({
     data: [],
@@ -217,7 +217,7 @@ onMounted(() => {
                                     <TableHead>Name</TableHead>
                                     <TableHead class="w-[100px]">Birthdate</TableHead>
                                     <TableHead class="w-[100px]">Gender</TableHead>
-                                    <TableHead class="w-[100px]"></TableHead>
+                                    <TableHead class="w-[50px]"></TableHead>
                                 </TableRow>
                             </TableHeader>
                             <TableBody>
@@ -226,9 +226,11 @@ onMounted(() => {
                                     <TableCell class="font-medium" v-text="animal.name"></TableCell>
                                     <TableCell v-text="animal.birthdate_humans"></TableCell>
                                     <TableCell v-text="animal.gender_humans"></TableCell>
-                                    <TableCell class="text-right w-[50px]">
+                                    <TableCell class="flex items-center justify-end w-[50px]">
                                         <DropdownMenu>
-                                            <DropdownMenuTrigger>...</DropdownMenuTrigger>
+                                            <DropdownMenuTrigger class="flex items-center justify-end">
+                                                <DotsHorizontalIcon></DotsHorizontalIcon>
+                                            </DropdownMenuTrigger>
                                             <DropdownMenuContent>
                                                 <DropdownMenuItem as-child>
                                                     <Link :href="route('animal.edit', {animal: animal.id})">Edit</Link>

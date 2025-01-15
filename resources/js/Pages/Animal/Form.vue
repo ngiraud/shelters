@@ -3,7 +3,7 @@ import {router} from '@inertiajs/vue3';
 import {onMounted, ref} from 'vue'
 import TextInput from "@/Components/TextInput.vue";
 import InputLabel from "@/Components/InputLabel.vue";
-import {Alert, AlertDescription, AlertTitle} from '@/components/ui/alert'
+import {Alert, AlertDescription, AlertTitle} from '@/Components/ui/alert'
 import {ExclamationTriangleIcon} from '@radix-icons/vue'
 import {Button} from "@/Components/ui/button";
 import {Label} from "@/Components/ui/label";
